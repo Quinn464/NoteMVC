@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ElevenNote.Models
+{
+    public class NoteDetail
+    {
+        public int NoteId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUTc { get; set; }
+
+        [Display(Name = "Modified")]
+        public DateTimeOffset? ModifiedUTc { get; set; }
+
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+    }
+}
